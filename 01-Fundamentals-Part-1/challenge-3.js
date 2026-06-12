@@ -1,28 +1,71 @@
 /*
 ==================================================
-- CODING CHALLENGE #2
+ CODING CHALLENGE #3
 ==================================================
 Course: The Complete JavaScript Course by Jonas Schmedtmann
 
-There are two gymnastics teams, Dolphins and Koalas. They compete against each other 3 times. The winner with the highest average score wins a trophy!
+Concepts Focus: Boolean Logic, Logical Operators (&&, ||), and Complex Control Flow
 
-Your tasks:
-1. Calculate the average score for each team, using the test data below
-2. Compare the team's average scores to determine the winner of the competition,
-and print it to the console. Don't forget that there can be a draw, so test for that
-as well (draw means they have the same average score)
-3. Bonus 1: Include a requirement for a minimum score of 100. With this rule, a
-team only wins if it has a higher score than the other team, and the same time a
-score of at least 100 points. Hint: Use a logical operator to test for minimum
-score, as well as multiple else-if blocks 😉
-4. Bonus 2: Minimum score also applies to a draw! So a draw only happens when
-both teams have the same score and both have a score greater or equal 100
-points. Otherwise, no team wins the trophy
-
-Test data:
-§ Data 1: Dolphins score 96, 108 and 89. Koalas score 88, 91 and 110
-§ Data Bonus 1: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 123
-§ Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
+✨ YOUR TASKS:
+1. Calculate the average score for each team (Dolphins and Koalas).
+2. Compare averages to determine the winner (including draws).
+3. Bonus 1: Add a minimum score requirement of 100 points for a team to win.
+4. Bonus 2: Minimum score of 100 also applies to a draw. Otherwise, no one wins.
 ==================================================
 */
 
+// ================================================
+//  TEST DATA 1: Basic Comparison (No Minimum Score Rule)
+// ================================================
+const scoreDolphins1 = (96 + 108 + 89) / 3;
+const scoreKoalas1 = (88 + 91 + 110) / 3;
+
+console.log('--- TEST DATA 1 ---');
+console.log(`Dolphins Average: ${scoreDolphins1.toFixed(1)} | Koalas Average: ${scoreKoalas1.toFixed(1)}`);
+
+if (scoreDolphins1 > scoreKoalas1) {
+  console.log('Dolphins win the trophy! 🏆');
+} else if (scoreKoalas1 > scoreDolphins1) {
+  console.log('Koalas win the trophy! 🏆');
+} else {
+  console.log('It is a draw! Both win the trophy! 🏆');
+}
+
+// ================================================
+//  TEST DATA BONUS 1: Implementing Minimum 100 Points Rule
+// ================================================
+const scoreDolphinsBonus1 = (97 + 112 + 101) / 3;
+const scoreKoalasBonus1 = (109 + 95 + 123) / 3;
+
+console.log('\n--- BONUS DATA 1 ---');
+console.log(`Dolphins Average: ${scoreDolphinsBonus1.toFixed(1)} | Koalas Average: ${scoreKoalasBonus1.toFixed(1)}`);
+
+if (scoreDolphinsBonus1 > scoreKoalasBonus1 && scoreDolphinsBonus1 >= 100) {
+  console.log('Dolphins win the trophy! 🏆');
+} else if (scoreKoalasBonus1 > scoreDolphinsBonus1 && scoreKoalasBonus1 >= 100) {
+  console.log('Koalas win the trophy! 🏆');
+} else if (scoreDolphinsBonus1 === scoreKoalasBonus1 && scoreDolphinsBonus1 >= 100) {
+  console.log('Both win the trophy! 🏆');
+} else {
+  console.log('No team wins the trophy. ❌');
+}
+
+// ================================================
+//  TEST DATA BONUS 2: Draw Scenario Below Minimum Score
+// ================================================
+const scoreDolphinsBonus2 = (97 + 112 + 101) / 3;
+const scoreKoalasBonus2 = (109 + 95 + 106) / 3;
+
+console.log('\n--- BONUS DATA 2 ---');
+console.log(`Dolphins Average: ${scoreDolphinsBonus2.toFixed(1)} | Koalas Average: ${scoreKoalasBonus2.toFixed(1)}`);
+
+// Applying the exact same logical rules to the third dataset
+if (scoreDolphinsBonus2 > scoreKoalasBonus2 && scoreDolphinsBonus2 >= 100) {
+  console.log('Dolphins win the trophy! 🏆');
+} else if (scoreKoalasBonus2 > scoreDolphinsBonus2 && scoreKoalasBonus2 >= 100) {
+  console.log('Koalas win the trophy! 🏆');
+} else if (scoreDolphinsBonus2 === scoreKoalasBonus2 && scoreDolphinsBonus2 >= 100) {
+  console.log('Both win the trophy! 🏆');
+} else {
+  console.log('No team wins the trophy. ❌');
+}
